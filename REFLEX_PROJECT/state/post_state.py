@@ -5,6 +5,7 @@ from REFLEX_PROJECT.post_data import posts
 
 class PostState(rx.State):
     posts: List[Dict[str, str]] = []
+    post: Dict[str, str] = {}
 
 
     async def load_posts(self) -> List[Dict[str, str]]:
@@ -15,3 +16,8 @@ class PostState(rx.State):
         print(f"form data: {form_data}")
 
         self.posts.append(form_data)
+
+    async def select_post(self, post_: dict):
+
+        self.post = post_
+        print(f"current post: {self.post}")
