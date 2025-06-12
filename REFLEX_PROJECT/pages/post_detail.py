@@ -2,7 +2,7 @@ import reflex as rx
 from REFLEX_PROJECT.components.navbar import navbar
 from REFLEX_PROJECT.components.posts import post_list
 from REFLEX_PROJECT.state.post_state import PostState
-
+from REFLEX_PROJECT.components.update_model import update_post_model
 
 def post_detail_page() -> rx.Component:
     return rx.box(
@@ -18,6 +18,7 @@ def post_detail_page() -> rx.Component:
                 rx.text(PostState.post['body']),
                 class_name= "post_detail_body"
             ),
+            update_post_model(),
             class_name="main"
         ),
         class_name="page",
